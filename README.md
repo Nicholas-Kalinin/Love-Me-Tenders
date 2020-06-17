@@ -27,10 +27,10 @@ Love Me Tenders is a review blog solely dedicated to the appreciation of an unde
   -recommend?(BooleanField)
     
 ## Schedule
-   -Week 1:
-      -Sketch out page format.
-      -Establish Django models, views, template rendering, database.
-      -Establish HTML search fields, load sample data into SQLite3 DB. 
+   * Week 1:
+      * Sketch out page format.
+      * Establish Django models, views, template rendering, database.
+      * Establish HTML search fields, load sample data into SQLite3 DB. 
       
    -Week 2:
       -Get data fields formatted on detail pages(HTML,CSS).
