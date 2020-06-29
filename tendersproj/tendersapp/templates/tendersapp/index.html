@@ -7,10 +7,9 @@
 </head>
 <body>
     <ul>
-        {% for tender_review in tender_reviews %}
-        <li>{{ tender_review.title }}</li>
+        {% for tender_review in tenders_review %}
+        <li>{{tender_review.business}}, {{tender_review.location}}</li>
         {% endfor %}
     </ul>
-    <h1>{{ message }}</h1>
 </body>
 </html>
