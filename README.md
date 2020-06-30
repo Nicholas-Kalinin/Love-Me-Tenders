@@ -12,7 +12,7 @@ Love Me Tenders is a review blog solely dedicated to the appreciation of an unde
 * [ ] Detail view to see individual reviews.
  * [ ] Delete review button.
  * [ ] Button to return to index.
- * [ ] Like/Comment box to provide feedback on review(flex)
+ * [ ] Like/Comment box to provide feedback on review.
   
   ## Data Models
   * TenderReview
@@ -31,11 +31,14 @@ Love Me Tenders is a review blog solely dedicated to the appreciation of an unde
       * Sketch out page format.
       * Establish Django models, views, template rendering, database.
       * Establish HTML search fields, load sample data into SQLite3 DB. 
+      * Create user system.
       
    * Week 2:
       * Get data fields formatted on detail pages(HTML,CSS).
       * Lockdown basic page layout(Flexbox?).
       * Integrate search feature with JS.
+      * Allow for crowd sourced reviews.
+      * Troubleshoot functionality.
       
    * Week3: 
       * Fonts/Button Effects.
@@ -43,7 +46,6 @@ Love Me Tenders is a review blog solely dedicated to the appreciation of an unde
       * Finalize styling.
       * Test functionality.
       
-   * Flex goal:
-      * Create user system.
-      * Allow for crowd sourced reviews.
+
+     
       * Troubleshoot functionality.
