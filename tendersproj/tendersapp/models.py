@@ -5,8 +5,9 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     email = models.EmailField(('email address'), unique=True)
-    bio = models.CharField(max_length=200, blank=True)
-    location = models.CharField(max_length=30, blank=True) 
+    bio = models.TextField(max_length=200, blank=True, null=True)
+    location = models.CharField(max_length=30, blank=True, null=True) 
+    profile_image = models.ImageField(upload_to='profile_image/', null=True, blank=True)
 
     def __str__(self):
         return self.username
@@ -20,8 +21,8 @@ class Restaurant(models.Model):
 
 class TenderReview(models.Model):
     location = models.CharField(max_length=50)
-    user_name = models.CharField(max_length=20)
-    photo_upload = models.FileField(upload_to='uploads/', blank=True)
+    username = models.ForeignKey(User, on_delete=models.PROTECT, related_name = "user_name")
+    food_image = models.ImageField(upload_to='food_image/', null=True, blank=True)
     date_published = models.DateField(auto_now=True)
     sides = models.CharField(max_length=100)
     sauces = models.CharField(max_length=100)
@@ -31,6 +32,6 @@ class TenderReview(models.Model):
     business = models.ForeignKey(Restaurant, on_delete=models.PROTECT, related_name = "tenders_review")
 
     def __str__(self):
-        return self.location 
+        return self.location
 
 
