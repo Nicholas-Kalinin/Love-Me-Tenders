@@ -1,1 +1,8 @@
 {% extends 'tendersapp/index.html' %}
+
+{% block content %}
+<h3>Create a new tender review:</h3>
+<form class="" action="{% url 'tendersapp:submit_review' %}" method="post"></form>
+    {% csrf_token %}
+    <label for="uname">Username:</label><br>
+    <input="text" name="business_name" id="business_name">

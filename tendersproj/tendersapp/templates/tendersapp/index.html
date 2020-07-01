@@ -6,6 +6,7 @@
     <title>Love Me Tenders</title>
 </head>
 <body>
+    <a href="{% url 'tendersapp:new_user' %}">Create Account</a>
     <ul>
         {% for tender_review in tenders_review %}
         <li>{{tender_review.business}}, {{tender_review.location}}</li>
