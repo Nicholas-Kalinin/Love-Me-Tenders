@@ -1,8 +1,46 @@
-{% extends 'tendersapp/index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h3>Create a new tender review:</h3>
+    <form class="" action="{% url 'tendersapp:submit_review' %}" method="post"></form>
+        {% csrf_token %}
+        <label for="business_name">Business:</label><br>
+        <input type="text" name="business_name" id="business_name"><br>
 
-{% block content %}
-<h3>Create a new tender review:</h3>
-<form class="" action="{% url 'tendersapp:submit_review' %}" method="post"></form>
-    {% csrf_token %}
-    <label for="uname">Username:</label><br>
-    <input="text" name="business_name" id="business_name">
+        <label for="location">Location:</label><br>
+        <input type="text" name="location" id="location"><br>
+        
+        <label for="user_name">Username:</label><br>
+        <input type="text" name="user_name" id="user_name"><br>
+        
+        <label for="sides">What kind of sides did you have?:</label><br>
+        <input type="text" name="sides" id="sides"><br>
+        
+        <label for="sauces">Tell us about them dipping sauces:</label><br>
+        <input type="text" name="sauces" id="sauces"><br>
+        
+        <label for="description">Synopsis:</label><br>
+        <textarea name="description" id="description">Tell us about the tenders(i.e meat quality, breading, spices etc.): </textarea><br>
+        
+        <label for="rating">Rating out of 5(0.0-5.0):</label><br>
+        <input type="number" name="rating" id="rating"><br>
+        
+        <label for="food_image">Upload Image:</label><br>
+        <input type="image" name="food_image" id="food_image"><br>
+        
+        <label for="recommend">Would you recommend these tendies?:</label><br>
+        <input type="checkbox" name="recommend">YES!</input><br>
+        
+        <button type="submit">submit</button>
+    
+    </form>
+    {% endblock %}
+    
+</body>
+</html>
