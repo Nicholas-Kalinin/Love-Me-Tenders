@@ -8,7 +8,7 @@
 <body>
     {% block content %}
     <h3>Create a new tender review:</h3>
-    <form class="" action="{% url 'tendersapp:submit_review' %}" method="post"></form>
+    <form class="" action="{% url 'tendersapp:submit_review' %}" method="post">
         {% csrf_token %}
         <label for="business_name">Business:</label><br>
         <input type="text" name="business_name" id="business_name"><br>
@@ -16,8 +16,8 @@
         <label for="location">Location:</label><br>
         <input type="text" name="location" id="location"><br>
         
-        <label for="user_name">Username:</label><br>
-        <input type="text" name="user_name" id="user_name"><br>
+        <!-- <label for="user_name">Username:</label><br>
+        <input type="text" name="user_name" id="user_name"><br> -->
         
         <label for="sides">What kind of sides did you have?:</label><br>
         <input type="text" name="sides" id="sides"><br>

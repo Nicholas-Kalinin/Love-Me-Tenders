@@ -3,6 +3,7 @@ from .models import TenderReview, Restaurant, User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.models import User
+import requests
 
 
 def index(request):
@@ -25,6 +26,8 @@ def new_user(request):
 
 def new_review(request): 
     new_review = TenderReview()
+    new_review = User()
+    new_review = Restaurant()
     context = {
         'new_review': new_review,
     }
@@ -33,7 +36,6 @@ def new_review(request):
 def submit_review(request):
     business_name = request.POST['business_name']
     location = request.POST['location']
-    user_name = request.POST['user_name']
     sides = request.POST['sides']
     description = request.POST['description']
     rating = request.POST['rating']
@@ -43,15 +45,15 @@ def submit_review(request):
     else:
         recommend = False    
 
+                            
+    new_rev = Restaurant(name=business_name)
+    new_rev = TenderReview(location=location,
+                              sides=sides,
+                              description=description,
+                              rating=rating,
+                              food_image=food_image,
+                              recommend=recommend)
+    
+    new_rev.save()
 
-    new_review = TenderReview(business_name=business_name,
-                          location=location,
-                          user_name=user_name,
-                          sides=sides,
-                          description=description,
-                          rating=rating,
-                          food_image=food_image,
-                          recommend=recommend,)
-    new_review.save()
-
-    return HttpResponseRedirect(reverse('tendersapp:index'))     
+    return HttpResponseRedirect(reverse('tendersapp:detail', args=(review.id,)))    
