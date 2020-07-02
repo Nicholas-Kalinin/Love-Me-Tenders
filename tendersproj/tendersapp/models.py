@@ -3,6 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import AbstractUser
 
 
+
 class User(AbstractUser):
     email = models.EmailField(('email address'), unique=True)
     bio = models.TextField(max_length=200, blank=True, null=True)
@@ -14,7 +15,7 @@ class User(AbstractUser):
 
 class TenderReview(models.Model):
     location = models.CharField(max_length=50, null=True, blank=True)
-    food_image = models.ImageField(upload_to='food_image/', null=True, blank=True)
+    food_image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
     sides = models.CharField(max_length=100, null=True, blank=True)
     sauces = models.CharField(max_length=100, null=True, blank=True)

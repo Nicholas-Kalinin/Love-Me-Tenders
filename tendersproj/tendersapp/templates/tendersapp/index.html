@@ -7,9 +7,7 @@
 </head>
 <body>
 {% block content %}    
-    <a href="{% url 'tendersapp:new_user' %}">Create Account</a><br>
     <a href="{% url 'tendersapp:new_review' %}">Create New Review</a>
-    <a href="{% url 'tendersapp:user_list' %}">Users</a>
     <ul>
         {% for tender_review in tenders_review %}
         <li><a href="/tendersapp/{{review.id}}">{{ tender_review.business_name }}, {{ tender_review.location }}</a></li>
