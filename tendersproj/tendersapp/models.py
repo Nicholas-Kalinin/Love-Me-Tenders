@@ -12,13 +12,6 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
-
-class Restaurant(models.Model):
-    name = models.CharField(max_length=100, null=True, blank=True)
-
-    def __str__(self):
-        return self.name
-
 class TenderReview(models.Model):
     location = models.CharField(max_length=50, null=True, blank=True)
     food_image = models.ImageField(upload_to='food_image/', null=True, blank=True)
@@ -28,7 +21,7 @@ class TenderReview(models.Model):
     description = models.TextField(max_length=1000, null=True, blank=True)
     rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)], null=True, blank=True)
     recommend = models.BooleanField(null=True, blank=True)
-    business_name = models.ForeignKey(Restaurant, on_delete=models.PROTECT, related_name = "tenders_review")
+    business_name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.location

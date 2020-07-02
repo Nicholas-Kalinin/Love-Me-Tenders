@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{tender_review.business}}</title>
-</head>
-<body>
+{% extends 'tendersapp/index.html' %}
+
 {% block content %}
-    <h2>{{tender_review.business}}</h2>
+    <h2>{{tender_review.business_name}}</h2>
     <h3>{{tender_review.location}}</h3>
-    <p>submitted by: {{tender_review.username}}</p>
     <p>submitted on: {{tender_review.date_published}}</p>
     <p>{{tender_review.food_image}}</p>
     <p>sauce synopsis: {{tender_review.sauces}}</p>
@@ -20,5 +13,3 @@
     
     <div><a href="{% url 'tendersapp:index' %}">back</a></div>
 {% endblock %}
-</body>
-</html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-from .models import TenderReview, Restaurant, User
+from .models import TenderReview, User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.models import User
@@ -14,8 +14,9 @@ def index(request):
     return render(request, 'tendersapp/index.html', context)
 
 def detail(request, review_id):  
-    tenders_review = get_object_or_404(TenderReview, pk=review_id)  
-    return render(request, 'tendersapp/detail.html', {'tenders_review': tenders_review})    
+    tender_review = get_object_or_404(TenderReview, pk=review_id)  
+
+    return render(request, 'tendersapp/detail.html', {'tender_review': tender_review})    
 
 def new_user(request): 
     new_user = User()
@@ -27,7 +28,6 @@ def new_user(request):
 def new_review(request): 
     new_review = TenderReview()
     new_review = User()
-    new_review = Restaurant()
     context = {
         'new_review': new_review,
     }
@@ -46,8 +46,9 @@ def submit_review(request):
         recommend = False    
 
                             
-    new_rev = Restaurant(name=business_name)
-    new_rev = TenderReview(location=location,
+  
+    new_rev = TenderReview(business_name=business_name,
+                              location=location,
                               sides=sides,
                               description=description,
                               rating=rating,
@@ -56,4 +57,4 @@ def submit_review(request):
     
     new_rev.save()
 
-    return HttpResponseRedirect(reverse('tendersapp:detail', args=(review.id,)))    
+    return HttpResponseRedirect(reverse('tendersapp:index'))    
