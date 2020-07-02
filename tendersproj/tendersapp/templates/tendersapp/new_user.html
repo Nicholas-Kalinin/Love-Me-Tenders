@@ -11,31 +11,28 @@
     {% block content %}
     <h3>Welcome to Love Me Tenders!</h3>
     <h2>Please create a login:</h2>
-    <form class="" action="" method="post"> 
+    <form class="" action="{%url 'tendersapp:submit_user' %}" method="post"> 
         {% csrf_token %}
-        <label for="uname">Username:</label><br>
-        <input type="text" name="username" id="uname"><br>
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" id="username"><br>
         
-        <label for="fname">First name:</label><br>
-        <input type="text" name="first_name" id="fname"><br>
+        <label for="first_name">First name:</label><br>
+        <input type="text" name="first_name" id="first_name"><br>
         
-        <label for="lname">Last name:</label><br>
-        <input type="text" name="last_name" id="lname"><br>
+        <label for="last_name">Last name:</label><br>
+        <input type="text" name="last_name" id="last_name"><br>
         
         <label for="email">Email address:</label><br>
-        <input type="text" name="email_address" id="email"><br>
-        
-        <label for="fname">First name:</label><br>
-        <input type="text" name="username" placeholder="username"><br>
+        <input type="text" name="email" id="email"><br>
         
         <label for="location">Location:</label><br>
-        <input type="text" name="user_location" id="location"><br>
+        <input type="text" name="location" id="location"><br>
         
-        <label for="user_image">Upload Image:</label><br>
-        <input type="image" name="user_image" id="user_image"><br>
+        <label for="profile_image">Upload Image:</label><br>
+        <input type="image" name="profile_image" id="profile_image"><br>
         
-        <label for="user_bio">Bio:</label><br>
-        <textarea name="user_bio" id="user_bio">Tell us a little bit about yourself...</textarea><br>
+        <label for="bio">Bio:</label><br>
+        <textarea name="bio" id="bio">Tell us a little bit about yourself...</textarea><br>
         
         <button type="submit">submit</button>
     </form>

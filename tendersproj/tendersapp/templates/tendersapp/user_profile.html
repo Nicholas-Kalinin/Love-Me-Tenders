@@ -1,0 +1,14 @@
+{% extends 'tendersapp/index.html' %}
+
+{% block content %}
+    <h2>{{User.username}}</h2>
+    <h3>{{User.first_name}}</h3>
+    <h3>{{User.last_name}}</h3>
+    <p>{{User.location}}</p>
+    <p>{{User.profile_image}}</p>
+    <p>member since:{{User.date_joined}}</p>
+    <p>bio:{{User.bio}}</p>
+
+    
+    <div><a href="{% url 'tendersapp:index' %}">back</a></div>
+{% endblock %}

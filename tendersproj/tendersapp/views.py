@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.models import User
 import requests
+from django.contrib.auth import get_user_model
 
 
 def index(request):
@@ -16,7 +17,19 @@ def index(request):
 def detail(request, review_id):  
     tender_review = get_object_or_404(TenderReview, pk=review_id)  
 
-    return render(request, 'tendersapp/detail.html', {'tender_review': tender_review})    
+    return render(request, 'tendersapp/detail.html', {'tender_review': tender_review}) 
+
+def user_list(request):
+    user_profile = User.objects.all()
+    context = {
+        'user_profile': user_profile
+    }
+    return render(request, 'tendersapp/user_list.html', context)
+
+def user_profile(request, user_profile_id):  
+    user_profile = get_object_or_404(User, pk=user_profile_id)  
+
+    return render(request, 'tendersapp/user_profile.html', {'user_profile': user_profile}) 
 
 def new_user(request): 
     new_user = User()
@@ -58,3 +71,27 @@ def submit_review(request):
     new_rev.save()
 
     return HttpResponseRedirect(reverse('tendersapp:index'))    
+
+    
+def submit_user(request):
+    username = request.POST['username']
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    email = request.POST['email']
+    location = request.POST['location']
+    profile_image = request.FILES.get('profile_image', None)
+    bio = request.POST['bio']
+
+                            
+  
+    new_user = User(username=User.username,
+                    first_name=User.first_name,
+                    last_name=User.last_name,
+                    email=User.email,
+                    location=User.objects.location,
+                    profile_image=User.objects.profile_image,
+                    bio=User.objects.bio)
+        
+    new_user.save()
+
+    return HttpResponseRedirect(reverse('tendersapp:users_list')) 
