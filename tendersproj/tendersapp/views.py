@@ -1,22 +1,22 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from .models import TenderReview, User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.models import User
 import requests
 
-
 def index(request):
-    tenders_review = TenderReview.objects.all()
+    tenders_review = TenderReview.objects.order_by('business_name')
+    template = loader.get_template('tendersapp/index.html')
     context = {
-        'tenders_review': tenders_review
+        'tenders_review': tenders_review,
     }
-    return render(request, 'tendersapp/index.html', context)
+    return HttpResponse(template.render(context, request))    
 
 def detail(request, review_id):  
     tender_review = get_object_or_404(TenderReview, pk=review_id)  
 
-    return render(request, 'tendersapp/detail.html', {'tender_review': tender_review})    
+    return render(request, 'tendersapp/detail.html', {'tender_review':tender_review})    
 
 def new_user(request): 
     new_user = User()
@@ -39,7 +39,7 @@ def submit_review(request):
     sides = request.POST['sides']
     description = request.POST['description']
     rating = request.POST['rating']
-    food_image = request.FILES.get('food_image', None)
+    food_image = request.FILES['food_image']
     if 'recommend' in request.POST:
         recommend = True
     else:
@@ -58,3 +58,9 @@ def submit_review(request):
     new_rev.save()
 
     return HttpResponseRedirect(reverse('tendersapp:index'))
+
+def upload_image(request):
+    food_image = request.FILES['food_image']
+    upload_image = TenderReview(food_image=food_image)
+        
+    upload_image.save()

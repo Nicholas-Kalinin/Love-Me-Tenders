@@ -14,6 +14,7 @@ class User(AbstractUser):
         return self.username
 
 class TenderReview(models.Model):
+    business_name = models.CharField(max_length=50)
     location = models.CharField(max_length=50, null=True, blank=True)
     food_image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
@@ -22,7 +23,6 @@ class TenderReview(models.Model):
     description = models.TextField(max_length=1000, null=True, blank=True)
     rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)], null=True, blank=True)
     recommend = models.BooleanField(null=True, blank=True)
-    business_name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.location
