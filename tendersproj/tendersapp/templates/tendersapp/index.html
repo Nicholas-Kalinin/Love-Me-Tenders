@@ -7,7 +7,8 @@
 </head>
 <body>
 <h1>Love Me Tenders</h1>    
-{% block content %}    
+{% block content %} 
+<h1> Welcome {{user}} </h1>
     <a href="{% url 'tendersapp:new_review' %}">Create New Review</a>
     <ul>
         {% for tender_review in tenders_review %}
