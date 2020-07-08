@@ -10,6 +10,10 @@
     <h3>Create a new tender review:</h3>
     <form action="{% url 'tendersapp:submit_review' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        <label for="username">Select username:</label><br>
+        <select name="username" id="username">
+            <option>{{user}}</option>
+        </select><br>
         <label for="business_name">Business:</label><br>
         <input type="text" name="business_name" id="business_name"><br>
 
@@ -27,6 +31,7 @@
         
         <label for="rating">Rating out of 5(0.0-5.0):</label><br>
         <input type="number" name="rating" id="rating"><br>
+        
         
         <label for="food_image">Upload Image:</label><br>
         <input type="file" name="food_image" accept="image/*"><br>

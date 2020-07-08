@@ -30,6 +30,8 @@ def new_review(request):
     return render(request, 'tendersapp/new_review.html', context)   
 
 def submit_review(request):
+    username = request.POST['username']
+    date_joined=request.POST['date_joined']
     business_name = request.POST['business_name']
     location = request.POST['location']
     sides = request.POST['sides']
@@ -43,13 +45,16 @@ def submit_review(request):
 
                             
   
-    new_rev = TenderReview(business_name=business_name,
+    new_rev = TenderReview(   username= User.objects.get(id=1), 
+                              date_joined=User.objects.get(id=1),    
+                              business_name=business_name,
                               location=location,
                               sides=sides,
                               description=description,
                               rating=rating,
                               food_image=food_image,
                               recommend=recommend)
+          
     
     new_rev.save()
 
