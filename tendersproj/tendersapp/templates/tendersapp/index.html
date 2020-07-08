@@ -15,6 +15,7 @@
         <li><a href="{% url 'tendersapp:detail' tender_review.id %}">{{tender_review.business_name}}</a></li>
         {% endfor %}
     </ul>
+    <a href="{% url 'logout' %}">Logout</a>
 {% endblock %}    
 </body>
 </html>

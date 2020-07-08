@@ -71,5 +71,3 @@ def sign_up(request):
             return render(request,'tendersapp/index.html')
     context['form']=form
     return render(request,'registration/sign_up.html',context) 
-
-   
