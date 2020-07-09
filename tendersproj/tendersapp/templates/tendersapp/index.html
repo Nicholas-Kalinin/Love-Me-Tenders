@@ -4,18 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Me Tenders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>img{
+        max-height: 300px;
+        }
+        li{display: block;
+           width: 700px;
+           height: 400px;
+           border: 1px solid gray; 
+           justify-content: center;
+           text-align: center;
+
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#"><h1> Welcome {{user}}!</h1></a>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
+</nav>
 <h1>Love Me Tenders</h1>    
 {% block content %} 
-<h1> Welcome {{user}} </h1>
+<h1> Welcome {{user}}!</h1>
     <a href="{% url 'tendersapp:new_review' %}">Create New Review</a>
+    <div class="container-md">
     <ul>
         {% for tender_review in tenders_review %}
-        <li><a href="{% url 'tendersapp:detail' tender_review.id %}">{{tender_review.business_name}}</a></li>
+        <li><a href="{% url 'tendersapp:detail' tender_review.id %}"><img src="{{tender_review.food_image.url}}"/>{{tender_review.business_name}} {{tender_review.location}} by {{tender_review.username}}</a></li>
         {% endfor %}
     </ul>
+    </div>
     <a href="{% url 'logout' %}">Logout</a>
-{% endblock %}    
+{% endblock %}   
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
 </body>
 </html>
