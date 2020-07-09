@@ -44,7 +44,7 @@ def submit_review(request):
 
                             
   
-    new_rev = TenderReview(   username= User.objects.get(id=1),   
+    new_rev = TenderReview(   username=username,
                               business_name=business_name,
                               location=location,
                               sides=sides,
