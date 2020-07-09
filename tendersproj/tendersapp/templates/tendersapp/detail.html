@@ -10,7 +10,7 @@
 <body>
 {% block content %}
     <h2>Written by: {{tender_review.username}}</h2>
-    <h2>Member since: {{tender_review.date_joined}}</h2>
+    <h2>Member since: {{user.date_joined}}</h2>
     <h2>{{tender_review.business_name}}</h2>
     <h3>{{tender_review.location}}</h3>
     <p>submitted on: {{tender_review.date_published}}</p>

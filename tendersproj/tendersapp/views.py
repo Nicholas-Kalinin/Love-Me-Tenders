@@ -31,7 +31,6 @@ def new_review(request):
 
 def submit_review(request):
     username = request.POST['username']
-    date_joined=request.POST['date_joined']
     business_name = request.POST['business_name']
     location = request.POST['location']
     sides = request.POST['sides']
@@ -45,8 +44,7 @@ def submit_review(request):
 
                             
   
-    new_rev = TenderReview(   username= User.objects.get(id=1), 
-                              date_joined=User.objects.get(id=1),    
+    new_rev = TenderReview(   username= User.objects.get(id=1),   
                               business_name=business_name,
                               location=location,
                               sides=sides,
