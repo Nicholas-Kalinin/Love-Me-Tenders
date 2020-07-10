@@ -17,16 +17,18 @@
         <button class="btn btn-outline-success ml-auto" type="submit"><a href="{% url 'tendersapp:index' %}">Menu</a></button>
     </nav>
     {% block content %}
-    <h2>Written by: {{tender_review.username}}</h2>
-    <h2>Member since: {{tender_review.date_joined}}</h2>
+    <h2>Written by: {{tender_review.first_name}} {{tender_review.last_initial}}</h2>
     <h2>{{tender_review.business_name}}</h2>
-    <h3>{{tender_review.location}}</h3>
+    <h3>{{tender_review.address}} {{tender_review.city}}, {{tender_review.state}}</h3>
     <p>submitted on: {{tender_review.date_published}}</p>
-    <img src="{{tender_review.food_image.url}}" />
+    <img src="{{tender_review.food_image.url}}"/>
+    <img src="{{tender_review.food_image.url}}"/>
+    <img src="{{tender_review.food_image.url}}"/>
+    <img src="{{tender_review.menu_image.url}}"/>
     <p>sauce synopsis: {{tender_review.sauces}}</p>
     <p>sides: {{tender_review.sides}}</p>
     <p>commentary: {{tender_review.description}}</p>
-    <p>rating: {{tender_review.rating}}/5</p>
+    <p>rating: {{tender_review.rating}}/10</p>
     <p>recommend?: {{tender_review.recommend}}</p>
 
     <div><a href="{% url 'tendersapp:index' %}">back</a></div>

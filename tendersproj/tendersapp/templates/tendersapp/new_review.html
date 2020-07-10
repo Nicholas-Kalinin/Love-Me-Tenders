@@ -16,15 +16,23 @@
     <h3>Create a new tender review:</h3>
     <form action="{% url 'tendersapp:submit_review' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="username">Select username:</label><br>
-        <select name="username" id="username">
-            <option>{{user}}</option>
-        </select><br>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name">
+        
+        <label for="last_initial">Last Name Initial:</label>
+        <input type="text" name="last_initial" id="last_initial">
+
         <label for="business_name">Business:</label><br>
         <input type="text" name="business_name" id="business_name"><br>
+        
+        <label for="address">Address:</label><br>
+        <input type="text" name="address" id="address"><br>
 
-        <label for="location">Location:</label><br>
-        <input type="text" name="location" id="location"><br>
+        <label for="city">City:</label><br>
+        <input type="text" name="city" id="city"><br>
+
+        <label for="state">State:</label><br>
+        <input type="text" name="state" id="state"><br>
         
         <label for="sides">What kind of sides did you have?:</label><br>
         <input type="text" name="sides" id="sides"><br>
@@ -35,12 +43,31 @@
         <label for="description">Synopsis:</label><br>
         <textarea name="description" id="description">Tell us about the tenders(i.e meat quality, breading, spices etc.): </textarea><br>
     
-        <label for="rating">Rating out of 5(0.0-5.0):</label><br>
-        <input type="number" name="rating" id="rating"><br>
-        
-        
-        <label for="food_image">Upload Image:</label><br>
+        <label for="rating">Rating out of 10:</label><br>
+        <select name="rating" id="rating">
+            <option>10</option>
+            <option>9</option>
+            <option>8</option>
+            <option>7</option>
+            <option>6</option>
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+        </select><br>
+        <p>Upload upto 3 images:</p>
+        <label for="food_image">Image:</label><br>
         <input type="file" name="food_image" accept="image/*"><br>
+
+        <label for="food_image">Image:</label><br>
+        <input type="file" name="food_image" accept="image/*"><br>
+
+        <label for="food_image">Image:</label><br>
+        <input type="file" name="food_image" accept="image/*"><br>
+
+        <label for="menu_image">Upload Menu:</label><br>
+        <input type="file" name="menu_image" accept="image/*"><br>
         
         <label for="recommend">Would you recommend these tendies?:</label><br>
         <input type="checkbox" name="recommend">YES!</input><br>

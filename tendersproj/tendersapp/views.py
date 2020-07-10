@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
-from .models import TenderReview
+from .models import TenderReview, User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth import get_user_model
@@ -30,13 +30,15 @@ def new_review(request):
     return render(request, 'tendersapp/new_review.html', context)   
 
 def submit_review(request):
-    username = request.POST['username']
     business_name = request.POST['business_name']
-    location = request.POST['location']
+    address = request.POST['address']
+    city = request.POST['city']
+    state = request.POST['state']
     sides = request.POST['sides']
     description = request.POST['description']
     rating = request.POST['rating']
     food_image = request.FILES['food_image']
+    menu_image = request.FILES['menu_image']
     if 'recommend' in request.POST:
         recommend = True
     else:
@@ -44,14 +46,16 @@ def submit_review(request):
 
                             
   
-    new_rev = TenderReview(   username=username,
-                              business_name=business_name,
-                              location=location,
-                              sides=sides,
-                              description=description,
-                              rating=rating,
-                              food_image=food_image,
-                              recommend=recommend)
+    new_rev = TenderReview(business_name=business_name,
+                            address=address,
+                            city=city,
+                            state=state,
+                            sides=sides,
+                            description=description,
+                            rating=rating,
+                            food_image=food_image,
+                            menu_image=menu_image,
+                            recommend=recommend)           
           
     
     new_rev.save()
@@ -60,7 +64,9 @@ def submit_review(request):
 
 def upload_image(request):
     food_image = request.FILES['food_image']
-    upload_image = TenderReview(food_image=food_image)
+    menu_image = request.FILES['menu_image']
+    upload_image = TenderReview(food_image=food_image,
+                                menu_image=menu_image)        
         
     upload_image.save()
 

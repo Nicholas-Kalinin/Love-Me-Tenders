@@ -1,9 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin, User
-from .models import TenderReview
+from .models import TenderReview, User
 
 
 
 
 admin.site.register(TenderReview)   
-
+admin.site.register(User)
