@@ -60,8 +60,7 @@
             <ul>
                 {% for tender_review in tenders_review %}
                 <li><a href="{% url 'tendersapp:detail' tender_review.id %}"><img
-                            src="{{tender_review.food_image.url}}" />{{tender_review.business_name}}
-                        {{tender_review.location}} by {{tender_review.username}}</a></li>
+                            src="{{tender_review.food_image.url}}"/>{{tender_review.business_name}} by {{tender_review.first_name}} {{tender_review.last_initial}}</a></li>
                 {% endfor %}
             </ul>
         </div>

@@ -31,6 +31,8 @@ def new_review(request):
 
 def submit_review(request):
     business_name = request.POST['business_name']
+    first_name = request.POST['first_name']
+    last_initial = request.POST['last_initial']
     address = request.POST['address']
     city = request.POST['city']
     state = request.POST['state']
@@ -47,6 +49,8 @@ def submit_review(request):
                             
   
     new_rev = TenderReview(business_name=business_name,
+                            first_name=first_name,
+                            last_initial=last_initial,
                             address=address,
                             city=city,
                             state=state,

@@ -11,7 +11,7 @@ class TenderReview(models.Model):
     city = models.CharField(max_length=50, null=True, blank=True)
     state = models.CharField(max_length=5, null=True, blank=True)
     first_name = models.CharField(max_length=20)
-    last_initial = models.CharField(max_length=1)
+    last_initial = models.CharField(max_length=5)
     food_image = models.ImageField(upload_to='images/', null=True, blank=True)
     menu_image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
