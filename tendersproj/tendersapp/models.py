@@ -18,7 +18,7 @@ class TenderReview(models.Model):
     sides = models.CharField(max_length=100, null=True, blank=True)
     sauces = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(max_length=1000, null=True, blank=True)
-    rating = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0)], null=True, blank=True)
+    rating = models.IntegerField(null=True, blank=True)
     recommend = models.BooleanField(null=True, blank=True)    
 
     def __str__(self):

@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <a class="navbar-brand" href="#">
             <h2> Welcome {{user}}!</h2>
         </a>
-        <button class="btn btn-outline-success ml-auto" type="submit"><a href="{% url 'tendersapp:index' %}">Menu</a></button>
+        <button class="btn btn-light btn-lg ml-auto" type="submit"><a href="{% url 'tendersapp:index' %}">Menu</a></button>
     </nav>
     {% block content %}
     <h2>Written by: {{tender_review.first_name}} {{tender_review.last_initial}}</h2>
@@ -31,7 +31,6 @@
     <p>rating: {{tender_review.rating}}/10</p>
     <p>recommend?: {{tender_review.recommend}}</p>
 
-    <div><a href="{% url 'tendersapp:index' %}">back</a></div>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

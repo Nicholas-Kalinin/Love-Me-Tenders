@@ -16,21 +16,25 @@
 
         img {
             max-height: 250px;
-            margin-top: 40px;
+            max-width: 300px;
+            margin-top: 50px;
+            float: left;
+            margin-left: 40px;
         }
 
         li {
-            margin-right:20px;
+           
             display: block;
-            width: 1200px;
+            width: 1000px;
             height: 350px;
             border: 1px solid gray;
-            border-radius: 1%;
+            border-radius: 2%;
             justify-content: center;
             text-align: center;
             margin-top: 30px;
             background-color: azure;
             opacity: 8;
+            font-size: 24pt;
         }
 
         .top {
@@ -41,16 +45,22 @@
             padding-top: 250px;
             padding-bottom: 300px;
         }
+        nav{
+            color: rgb(219, 13, 13);
+        }
+        .inner-text{
+            margin-top: 30px;
+        }
     </style>
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <a class="navbar-brand" href="#">
-            <h2> Welcome {{user}}! Member Since: {{user.date_joined}}</h2>
+            <h2> Welcome {{user}}! Member Since: {{user.date_joined|date:"F Y"}}</h2>
         </a>
-        <button class="btn btn-outline-success ml-auto" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
+        <button class="btn btn-light ml-auto" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
     </nav>
 
     <div class="top">
@@ -60,7 +70,7 @@
         </h1>
         {% block content %}
         <div class="new_review">
-        <a href="{% url 'tendersapp:new_review' %}">Create New Review</a>
+            <button class="btn btn-warning btn-lg ml-auto" type="submit"><a href="{% url 'tendersapp:new_review' %}">Create New Review</a></button>
         </div>
     </div>
     <div id=review>
@@ -68,7 +78,7 @@
             <ul>
                 {% for tender_review in tenders_review %}
                 <li class="review_item"><a href="{% url 'tendersapp:detail' tender_review.id %}"><img
-                            src="{{tender_review.food_image.url}}"/>{{tender_review.business_name}} by {{tender_review.first_name}} {{tender_review.last_initial}}</a></li>
+                            src="{{tender_review.food_image.url}}"/><span class=inner_text><br>{{tender_review.business_name}}<br>{{tender_review.city}}, {{tender_review.state}}<br>Rating: {{tender_review.rating}}/10<br><br>Submitted by {{tender_review.first_name}} {{tender_review.last_initial}} on {{tender_review.date_published|date:"F j, Y"}}</span></a></li>
                 {% endfor %}
             </ul>
         </div>
