@@ -10,8 +10,8 @@
     <style>
         h1 {
             text-align: center;
-            font-size: 64pt;
-            margin: 200px;
+            font-size: 72pt;
+       
         }
 
         img {
@@ -20,26 +20,29 @@
         }
 
         li {
+            margin-right:20px;
             display: block;
-            width: 1000px;
+            width: 1200px;
             height: 350px;
             border: 1px solid gray;
-            border-radius: 2%;
+            border-radius: 1%;
             justify-content: center;
             text-align: center;
             margin-top: 30px;
             background-color: azure;
-            opacity: 9;
+            opacity: 8;
         }
 
-        #top {
+        .top {
             text-align: center;
-            font-size: 24pt;
-            margin-top: 0px;
+            font-size: 36pt;
             background-color: rgb(175, 238, 238);
             background-image: url('{{STATIC_URL}}tenders.jpg');
+            padding-top: 250px;
+            padding-bottom: 300px;
         }
     </style>
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -50,21 +53,31 @@
         <button class="btn btn-outline-success ml-auto" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
     </nav>
 
-    <div id=top>
-        <h1>Love Me Tenders</h1>
+    <div class="top">
+        <h1 class="title">Love
+            <span class="me">Me</span>
+            <span class="tenders">Tenders</span>
+        </h1>
         {% block content %}
+        <div class="new_review">
         <a href="{% url 'tendersapp:new_review' %}">Create New Review</a>
+        </div>
     </div>
     <div id=review>
         <div class="container-md">
             <ul>
                 {% for tender_review in tenders_review %}
-                <li><a href="{% url 'tendersapp:detail' tender_review.id %}"><img
+                <li class="review_item"><a href="{% url 'tendersapp:detail' tender_review.id %}"><img
                             src="{{tender_review.food_image.url}}"/>{{tender_review.business_name}} by {{tender_review.first_name}} {{tender_review.last_initial}}</a></li>
                 {% endfor %}
             </ul>
         </div>
     {% endblock %}
+        <script>ScrollReveal().reveal('.title',{ delay: 500 })</script>
+        <script>ScrollReveal().reveal('.me',{ delay: 1000 })</script>
+        <script>ScrollReveal().reveal('.tenders',{ delay: 3000 })</script>
+        <script>ScrollReveal().reveal('.new_review',{ delay: 4000 })</script>
+        <script>ScrollReveal().reveal('.review_item',{ delay: 2000 })</script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
