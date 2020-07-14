@@ -7,6 +7,7 @@
     <title>Love Me Tenders</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@200&display=swap" rel="stylesheet">  
     <style>
         h1 {
             text-align: center;
@@ -19,24 +20,32 @@
             max-width: 300px;
             margin-top: 50px;
             float: left;
-            margin-left: 40px;
+            margin-left: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
         }
-
+        ul{ justify-content: center;}
         li {
-           
+            box-shadow: 10px 15px gray;
             display: block;
-            width: 1000px;
+            width: 1300px;
             height: 350px;
-            border: 1px solid gray;
-            border-radius: 2%;
-            justify-content: center;
+            border: 5px solid rgb(0, 0, 0);
+            border-radius: 25px;
+            align-items: center;
             text-align: center;
-            margin-top: 30px;
-            background-color: azure;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            margin-left: -150px;
+            background-color: rgb(240, 186, 8);
             opacity: 8;
             font-size: 24pt;
+            font-family: 'Raleway', sans-serif;
         }
-
+        a {color: black;}
+        a:hover {
+            text-decoration: none;
+        }
         .top {
             text-align: center;
             font-size: 36pt;
@@ -47,9 +56,15 @@
         }
         nav{
             color: rgb(219, 13, 13);
+            font-family: 'Raleway', sans-serif;
         }
         .inner-text{
+            font-family: 'Raleway', sans-serif;
             margin-top: 30px;
+        }
+        .tenders{font-family: 'Pacifico', cursive;
+        }
+        .me,.title{font-family: 'Raleway', sans-serif;
         }
     </style>
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -64,8 +79,6 @@
     </nav>
 
     <div class="top">
-        {% load static %}
-        <img src="{% static "tendersapp/tenders.png" %}" alt="My image">
         <h1 class="title">Love
             <span class="me">Me</span>
             <span class="tenders">Tenders</span>
@@ -80,7 +93,7 @@
             <ul>
                 {% for tender_review in tenders_review %}
                 <li class="review_item"><a href="{% url 'tendersapp:detail' tender_review.id %}"><img
-                            src="{{tender_review.food_image.url}}"/><span class=inner_text><br>{{tender_review.business_name}}<br>{{tender_review.city}}, {{tender_review.state}}<br>Rating: {{tender_review.rating}}/10<br><br>Submitted by {{tender_review.first_name}} {{tender_review.last_initial}} on {{tender_review.date_published|date:"F j, Y"}}</span></a></li>
+                            src="{{tender_review.food_image1.url}}"/><span class=inner_text><br>{{tender_review.business_name}}<br>{{tender_review.city}}, {{tender_review.state}}<br>Rating: {{tender_review.rating}}/10<br><br>Submitted by {{tender_review.first_name}} {{tender_review.last_initial}}</span></a></li>
                 {% endfor %}
             </ul>
         </div>

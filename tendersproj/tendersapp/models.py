@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class User(models.Model):
     username = models.CharField(max_length=30, blank=True, null=True)
@@ -12,7 +12,9 @@ class TenderReview(models.Model):
     state = models.CharField(max_length=5, null=True, blank=True)
     first_name = models.CharField(max_length=20)
     last_initial = models.CharField(max_length=5)
-    food_image = models.ImageField(upload_to='images/', null=True, blank=True)
+    food_image1 = models.ImageField(upload_to='images/', null=True, blank=True)
+    food_image2 = models.ImageField(upload_to='images/', null=True, blank=True)
+    food_image3 = models.ImageField(upload_to='images/', null=True, blank=True)
     menu_image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
     sides = models.CharField(max_length=100, null=True, blank=True)
