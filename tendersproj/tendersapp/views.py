@@ -42,6 +42,7 @@ def submit_review(request):
     city = request.POST['city']
     state = request.POST['state']
     sides = request.POST['sides']
+    sauces = request.POST['sauces']
     description = request.POST['description']
     rating = request.POST['rating']
     food_image1 = request.FILES['food_image1']
@@ -60,6 +61,7 @@ def submit_review(request):
                            city=city,
                            state=state,
                            sides=sides,
+                           sauces=sauces,
                            description=description,
                            rating=rating,
                            food_image1=food_image1,

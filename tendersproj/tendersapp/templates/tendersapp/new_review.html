@@ -5,10 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>New Review</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@200&display=swap" rel="stylesheet">     
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@200&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">   
     <style>
         .user_info {
             display: inline-block;
@@ -16,6 +17,15 @@
 
         .biz_info {
             display: inline-block;
+        }
+        main{text-align: center;
+            margin-left: 100px;
+        margin-right: 100px;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    }
+    h3{font-size: 30pt;}
+    body{background-color: rgb(175, 238, 238);
         }
     </style>
 </head>
@@ -29,7 +39,8 @@
                 href="{% url 'tendersapp:index' %}">Menu</a></button>
     </nav>
     {% block content %}
-    <h3>Create a new tender review:</h3>
+    <main>
+    <h3>Create a new tender review:</h3><br>
     <form action="{% url 'tendersapp:submit_review' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <span class="user_info">
@@ -39,11 +50,11 @@
 
             <label for="last_initial">Last Name Initial:</label>
             <input type="text" name="last_initial" id="last_initial">
-        </span><br>
+        </span><br><br>
 
         <span class="biz_info">
             <h3>Business Info:</h3>
-            <label for="business_name">Business:</label>
+            <label for="business_name">Restaurant:</label>
             <input type="text" name="business_name" id="business_name">
 
             <label for="address">Address:</label>
@@ -104,7 +115,7 @@
                 <option>WV</option>
                 <option>WY</option>
             </select>
-        </span><br>
+        </span><br><br>
 
         <span class="chicken_info">
             <h3>The Nitty Gritty:</h3>
@@ -112,10 +123,10 @@
             <input type="text" name="sides" id="sides">
 
             <label for="sauces">Tell us about them dipping sauces:</label>
-            <input type="text" name="sauces" id="sauces"><br>
+            <input type="text" name="sauces" id="sauces"><br><br>
 
             <label for="description">Synopsis:</label><br>
-            <textarea name="description"
+            <textarea rows="10" cols="40" name="description"
                 id="description">Tell us about the tenders(i.e meat quality, breading, spices etc.): </textarea><br><br>
 
             <label for="rating">Rating out of 10:</label><br>
@@ -136,7 +147,7 @@
             <input type="checkbox" name="recommend">YES!</input><br>
         </span><br>
 
-        <p>Upload upto 3 images:</p>
+        <h3 class="images">Upload Images:</h3>
         <label for="food_image1">Image 1(default):</label><br>
         <input type="file" name="food_image1" accept="image/*"><br>
 
@@ -147,11 +158,11 @@
         <input type="file" name="food_image3" accept="image/*"><br>
 
         <label for="menu_image">Upload Menu:</label><br>
-        <input type="file" name="menu_image" accept="image/*"><br>
+        <input type="file" name="menu_image" accept="image/*"><br><br>
 
 
         <button class="btn btn-success btn-lg ml-auto" type="submit">submit</button>
-
+    </main>
     </form>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

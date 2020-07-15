@@ -9,54 +9,76 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@200&display=swap"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">    
     <style>
-        .title{
+        h4{
+            
+            justify-content: center;
+            text-align: center;
+            font-size: 22pt;
+        }
+        .title {
             text-align: center;
             margin-top: 20px;
         }
+
         .photo {
             float: right;
         }
 
         .info {
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
             float: left;
             background-color: white;
-            height: 500px;
-            margin-left: 150px;
+            height: 600px;
+            width: 550px;
+            margin-left: 100px;
+            border: 5px solid orange;
         }
 
 
 
         #carouselExampleControls {
-            margin-right: 150px;
+            margin-right: 100px;
             border: 5px solid orange;
+            height: 100%;
+            width: 550px;
         }
-        .carousel-item {
-            max-height: 500px;
-            overflow: hidden;
-            width: 100%;
-        }
+
         .rating {
-            font-size:24pt;
+            font-size: 24pt;
         }
+
         body {
             background-color: rgb(175, 238, 238);
             font-family: 'Raleway', sans-serif;
-          
+
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
             font-size: 54pt;
         }
-
+        .carousel-inner {width: 100%;
+                         height:100%;
+                         overflow: hidden;
+                        }
         .tender_info {
             font-size: 24pt;
-            margin-left: 100px;
+            margin-left: 150px;
+            margin-bottom: 50px;
         }
-        .container{
+
+        .container {
             display: flex;
+            margin-bottom: 50px;
         }
+        p{font-size: 20pt;
+        }
+        hr{border: 1px solid orange;
+            margin-left:50px;
+            margin-right: 50px;}
     </style>
 </head>
 
@@ -70,19 +92,21 @@
     </nav>
     {% block content %}
     <div class="title">
-        <h1>{{tender_review.business_name}}</h2>
+        <h1>{{tender_review.business_name}}</h1>
             <p class="rating">rating: {{tender_review.rating}}/10</p>
     </div>
     <div class="flex-container">
         <div class="flex-child info">
-            <h2>{{tender_review.address}}<br>{{tender_review.city}}, {{tender_review.state}}</h2>
-            <h3>Written by: {{tender_review.first_name}} {{tender_review.last_initial}}</h3>
-            <p>sauce synopsis: {{tender_review.sauces}}</p>
-            <p>sides: {{tender_review.sides}}</p>
-            <p>commentary: {{tender_review.description}}</p>
-            <p>rating: {{tender_review.rating}}/10</p>
-            <p>Recommend?: {{tender_review.recommend}}</p>
-            <h3>-submitted on: {{tender_review.date_published}}</h3>
+            <h4 class="restarant">RESTAURANT: {{tender_review.business_name}}</h4>
+            <p>ADDRESS:<br>{{tender_review.address}}<br>{{tender_review.city}}, {{tender_review.state}}</p>
+            <hr>
+            <p><strong>SAUCE SYNOPSIS: </strong> {{tender_review.sauces}}</p>
+            <p><strong>SIDES:</strong> {{tender_review.sides}}</p>
+            <p><strong>COMMENTARY:</strong> {{tender_review.description}}</p>
+            <p><strong>RECOMMEND?:</strong> {{tender_review.recommend}}</p>
+            <hr>
+            <h3>REVIEW BY: {{tender_review.first_name}} {{tender_review.last_initial}}</h3>
+            <p><strong>SUBMITTED:</strong> {{tender_review.date_published}}</p>
         </div>
         <div class="flex-child photo">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
