@@ -5,14 +5,14 @@ A chicken tender review blog/capstone project for PDX Code Guild.
 Love Me Tenders is a review blog solely dedicated to the appreciation of an underappreciated and often times misunderstood food item: chicken tenders.  Initial development will begin as a blog containing my own user reviews,photos and data, but I would ideally like it to be a Yelp Clone that gathers crowd-sourced reviews.  
 
 ## Functionality
-* [ ] Index view containing main page with individual review titles and images.
-  * [ ] User system for submitting reviews.(flex)
-  * [ ] Button at to create new review.
+* [x ] Index view containing main page with individual review titles and images.
+  * [x ] User system for submitting reviews.(flex)
+  * [ x] Button at to create new review.
   * [ ] Search field to search for specific reviews.
-* [ ] Detail view to see individual reviews.
+* [ x] Detail view to see individual reviews.
  * [ ] Delete review button.
- * [ ] Button to return to index.
- * [ ] Like/Comment box to provide feedback on review.
+ * [ x] Button to return to index.
+ 
   
   ## Data Models
   * TenderReview
