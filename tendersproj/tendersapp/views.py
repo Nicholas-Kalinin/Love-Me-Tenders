@@ -12,7 +12,7 @@ import requests
 
 @login_required
 def index(request):
-    tenders_review = TenderReview.objects.order_by('business_name')
+    tenders_review = TenderReview.objects.order_by('date_published')
     context = {
         'tenders_review': tenders_review,
     }
@@ -48,7 +48,7 @@ def submit_review(request):
     food_image1 = request.FILES['food_image1']
     food_image2 = request.FILES['food_image2']
     food_image3 = request.FILES['food_image3']
-    menu_image = request.FILES['menu_image']
+ 
     if 'recommend' in request.POST:
         recommend = True
     else:
@@ -67,7 +67,6 @@ def submit_review(request):
                            food_image1=food_image1,
                            food_image2=food_image2,
                            food_image3=food_image3,
-                           menu_image=menu_image,
                            recommend=recommend)
 
     new_rev.save()
@@ -79,11 +78,9 @@ def upload_image(request):
     food_image1 = request.FILES['food_image1']
     food_image2 = request.FILES['food_image2']
     food_image3 = request.FILES['food_image3']
-    menu_image = request.FILES['menu_image']
     upload_image = TenderReview(food_image1=food_image1,
                                 food_image2=food_image2,
-                                food_image3=food_image3,
-                                menu_image=menu_image)
+                                food_image3=food_image3)
 
     upload_image.save()
 

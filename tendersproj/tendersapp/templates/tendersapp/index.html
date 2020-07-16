@@ -51,7 +51,7 @@
             font-size: 36pt;
             background-color: rgb(175, 238, 238);
             background-image: url('{{STATIC_URL}}tenders.jpg');
-            padding-top: 250px;
+            padding-top: 200px;
             padding-bottom: 300px;
         }
         nav{
@@ -66,6 +66,9 @@
         }
         .me,.title{font-family: 'Raleway', sans-serif;
         }
+        h3{padding: 50px;
+            font-family: 'Pacifico', cursive;
+    }
     </style>
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
@@ -84,24 +87,26 @@
         </h1>
         {% block content %}
         <div class="new_review">
-            <button class="btn btn-warning btn-lg ml-auto" type="submit"><a href="{% url 'tendersapp:new_review' %}">Create New Review</a></button>
+            <button class="btn btn-warning btn-lg ml-auto" type="submit"><a href="{% url 'tendersapp:new_review' %}">Create New Review</a></button><br>
         </div>
+        <h3 class="quote">A Place to Appreciate Chicken Tenders</h3>
     </div>
     <div id=review>
         <div class="container-md">
             <ul>
                 {% for tender_review in tenders_review %}
                 <li class="review_item"><a href="{% url 'tendersapp:detail' tender_review.id %}"><img
-                            src="{{tender_review.food_image1.url}}"/><span class=inner_text><br>{{tender_review.business_name}}<br>{{tender_review.city}}, {{tender_review.state}}<br>Rating: {{tender_review.rating}}/10<br><br>Submitted by {{tender_review.first_name}} {{tender_review.last_initial}}</span></a></li>
+                            src="{{tender_review.food_image1.url}}"/><span class=inner_text><br>{{tender_review.business_name}}<br>{{tender_review.city}}, {{tender_review.state}}<br>Rating: {{tender_review.rating}}/10<br><br>Submitted by {{tender_review.first_name}} {{tender_review.last_initial}} on {{tender_review.date_published|date:"F d,Y"}}</span></a></li>
                 {% endfor %}
             </ul>
         </div>
     {% endblock %}
         <script>ScrollReveal().reveal('.title',{ delay: 500 })</script>
         <script>ScrollReveal().reveal('.me',{ delay: 1000 })</script>
-        <script>ScrollReveal().reveal('.tenders',{ delay: 3000 })</script>
+        <script>ScrollReveal().reveal('.tenders',{ delay: 2500 })</script>
+        <script>ScrollReveal().reveal('.quote',{ delay: 4000 })</script>
         <script>ScrollReveal().reveal('.new_review',{ delay: 4000 })</script>
-        <script>ScrollReveal().reveal('.review_item',{ delay: 2000 })</script>
+        <script>ScrollReveal().reveal('.review_item',{ delay: 1500 })</script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>

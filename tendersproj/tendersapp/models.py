@@ -15,7 +15,6 @@ class TenderReview(models.Model):
     food_image1 = models.ImageField(upload_to='images/', null=True, blank=True)
     food_image2 = models.ImageField(upload_to='images/', null=True, blank=True)
     food_image3 = models.ImageField(upload_to='images/', null=True, blank=True)
-    menu_image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
     sides = models.CharField(max_length=100, null=True, blank=True)
     sauces = models.CharField(max_length=100, null=True, blank=True)
