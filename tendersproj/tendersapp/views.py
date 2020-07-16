@@ -92,6 +92,11 @@ def sign_up(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return render(request, 'tendersapp/index.html')
+            return HttpResponseRedirect(reverse('tendersapp:index'))
     context['form'] = form
     return render(request, 'registration/sign_up.html', context)
+
+def delete_review(request, review_id):
+    tender_review = TenderReview.objects.get(id=review_id)
+    tender_review = tender_review.delete()
+    return HttpResponseRedirect(reverse('tendersapp:index'))

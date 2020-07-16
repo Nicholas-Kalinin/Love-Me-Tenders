@@ -106,7 +106,9 @@
             <p><strong>RECOMMEND?:</strong> {{tender_review.recommend}}</p>
             <hr>
             <h3>REVIEW BY: {{tender_review.first_name}} {{tender_review.last_initial}}</h3>
-            <p><strong>SUBMITTED:</strong> {{tender_review.date_published}}</p>
+            <p><strong>SUBMITTED:</strong> {{tender_review.date_published}}</p><br>
+            <a href="{% url 'tendersapp:delete_review' tender_review.id %}" class="btn btn-danger">delete review</a>
+
         </div>
         <div class="flex-child photo">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -133,7 +135,7 @@
             </div>
         </div>
 
-
+        
     </div>
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

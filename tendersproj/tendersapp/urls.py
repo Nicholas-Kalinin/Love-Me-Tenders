@@ -13,4 +13,5 @@ urlpatterns = [
     path('new_review/', views.new_review, name='new_review'),
     path('submit_review', views.submit_review, name='submit_review'),
     path('tendersapp/sign_up/',views.sign_up,name="sign-up"),
+    path('delete_review/<int:review_id>/', views.delete_review, name='delete_review'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
