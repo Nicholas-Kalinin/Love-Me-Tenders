@@ -10,7 +10,7 @@ Love Me Tenders is a review blog solely dedicated to the appreciation of an unde
   * [ x] Button at to create new review.
   * [ ] Search field to search for specific reviews.
 * [ x] Detail view to see individual reviews.
- * [ ] Delete review button.
+ * [ x] Delete review button.
  * [ x] Button to return to index.
  
   
